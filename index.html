@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
+		<meta http-equiv="refresh" content="60">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Material de Estudo</title>
 		<style>
 		body {
                 	background-color: #F0FFF0;
-                	font-family: "Comic Sans MS", cursive, sans-serif;
+                	font-family: "Comic Sans MS", sans-serif;
                 	margin: 20px;
                    }
 		h1{
@@ -19,6 +20,7 @@
 			border-radius: 30px;
 		   
 		   }
+
 		h2{
 			background-color: #3b383c;
 			text-align: center;
@@ -36,16 +38,32 @@
 			font-size: 32px;
 		   }
 		   
-			nav li{  font-family: "Comic Sans MS", sans-serif;
-			      font-size: 40px;
-			      border-radius: 23px;
-		   }
+		nav ul {
+			display: flex;         
+			padding: 0;
+			gap: 20px;
+			list-style-type: none;              
+			flex-wrap: wrap;        
+			}
+		nav li{ 
+			font-family: "Comic Sans MS", sans-serif;
+			font-size: 40px;
+			border-radius: 23px;
+		   	}
 		mark {
             		font-family: "Comic Sans MS", cursive, sans-serif;
 			background-color: #F0FFF0;
 			color: Blue;
 			border-radius: 30px;
-      		   }
+      		  	 }
+		img {
+			width: 50%;       
+			max-width: 600px;  
+			height: auto;     
+			border-radius: 20px; 
+			display: block;
+			margin: 20px auto; 
+			}
 
 		</style>
 	</head>
@@ -69,13 +87,14 @@ o objetivo do site visa ajudar o aluno nas duvidas que vem surgindo durante o es
 
 		<nav>
 		<ul>
-     		      <li><a href="#Conceitos-Fundamentais">Conceitos Fundamentais</a></li>
-      		      <li><a href="#Tipos-de-Dados-e-Variáveis">Tipos de Dados e Variáveis</a></li>
-    		      <li><a href="#Estruturas-de-Controle">Estruturas de Controle</a></li>
-     		      <li><a href="#Estruturas-de-Repetição">Estruturas de Repetição</a></li>
-  		      <li><a href="#Estruturas-de-Dados-Compostas">Estruturas de Dados Compostas</a></li>
-     		      <li><a href="#Modularização">Modularização</a></li>
-        	      <li><a href="#Tópicos-Avançados-e-Boas-Praticas">Tópicos Avançados e Boas Praticas</a></li>
+     			<li><a href="#Conceitos-Fundamentais">Conceitos Fundamentais</a></li>
+      			<li><a href="#Tipos-de-Dados-e-Variáveis">Tipos de Dados e Variáveis</a></li>
+    			<li><a href="#Estruturas-de-Controle">Estruturas de Controle</a></li>
+     			<li><a href="#Estruturas-de-Repetição">Estruturas de Repetição</a></li>
+  			<li><a href="#Estruturas-de-Dados-Compostas">Estruturas de Dados Compostas</a></li>
+     			<li><a href="#Modularização">Modularização</a></li>
+        		<li><a href="#Tópicos-Avançados-e-Boas-Praticas">Tópicos Avançados e Boas Praticas</a></li>
+			<li><a href="#Codigo-dos-Tópicos">Exemplo Prático em Código</a></li>
 
 		</ul>
 
@@ -84,7 +103,7 @@ o objetivo do site visa ajudar o aluno nas duvidas que vem surgindo durante o es
 
 		<div id="Conceitos-Fundamentais" style="margin-top: 10px;">
                 <h2>Conceitos Fundamentais</h2>
-                <p>O Conceito: Um algoritmo não é o código final, mas a estratégia lógica por trás dele. É uma sequência finita de passos que resolvem um problema específico sem ambiguidades.</p><br>
+             <p>O Conceito: Um algoritmo não é o código final, mas a estratégia lógica por trás dele. É uma sequência finita de passos que resolvem um problema específico sem ambiguidades.</p><br>
 
 <p>Analogia: Imagine um GPS. Ele não dirige o carro por você, mas te dá o passo a passo (Vire à direita, siga por 2km). Se uma instrução estiver errada, você não chega ao destino.</p><br>
 
@@ -181,6 +200,11 @@ o objetivo do site visa ajudar o aluno nas duvidas que vem surgindo durante o es
 <p>Dica do Mestre: A organização dos dados é o que define se seu sistema será leve ou se vai "engasgar" quando tiver muitos usuários.</p>
         	</div>
 
+		<div id="Codigo-dos-Tópicos" style="margin-top: 10px;">
+			<h2>Exemplo Prático em Código</h2>
+			<img src="Codigo1.png" alt="Parte 1 do algoritmo" style="max-width: 100%; height: auto;">
+			<img src="Codigo2.png" alt="Parte 2 do algoritmo" style="max-width: 100%; height: auto;">
+		</div>
         	<hr>
 
 
@@ -217,4 +241,3 @@ o objetivo do site visa ajudar o aluno nas duvidas que vem surgindo durante o es
 		</footer>		
 	</body>
 </html>
-
