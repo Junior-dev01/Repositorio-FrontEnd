@@ -1,0 +1,192 @@
+		body {
+			background: #F0FFF0 url('../img1.png') no-repeat center center fixed;  
+			background-size: cover;
+			margin: 0;
+			padding: 20px;
+			min-height: 100vh;
+			box-sizing: border-box;
+			}
+
+		#pagina{
+			display: grid;
+			grid-template-columns: 220px 1fr; 
+			grid-template-areas: 
+			"topo topo"
+			"menu conteudo";
+			gap: 20px;
+			max-width: 1600px;
+			margin: 0 auto 40px auto; 
+			}
+
+		#topo {
+			grid-area: topo;
+			width: 100%;
+			}
+
+		h6 {
+			display: block;
+			width: 100%;
+			background-color: #3b383c;
+			color: Red;
+			text-align: center;
+			padding: 20px;
+			font-family: "Comic Sans MS", cursive;
+			font-size: 35px;
+			border: 2px solid Red;
+			border-radius: 50px;
+			box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+			box-sizing: border-box;
+			margin: 10px 0 !important;
+			}
+
+		#topo p, 
+			section > p:first-of-type {
+			color: #333;
+			font-family: "Comic Sans MS", sans-serif;
+			font-size: 24px;
+			text-align: center;
+			background: rgba(255, 255, 255, 0.7);
+			border-radius: 10px;
+			padding: 10px;
+			margin: 10px auto;
+			max-width: 90%;
+			display: block;
+			}
+
+		#menu-principal {
+			grid-area: menu;
+			background-color: rgba(59, 56, 60, 0.95);
+			padding: 15px;
+			border-radius: 20px;
+			height: fit-content;
+			position: sticky;
+			top: 20px;
+			}
+
+		#menu-principal ul {
+			display: flex !important;
+			flex-direction: column !important; 
+			padding: 0;
+			margin: 0;
+			gap: 15px;
+			list-style: none;
+			}
+
+		#menu-principal li {
+			font-family: "Comic Sans MS", sans-serif;
+			font-size: 20px;
+			border-radius: 15px;
+			padding: 10px;
+			text-align: center;
+			background-color: #4a474b;
+			transition: transform 0.3s ease;
+			}
+
+		#menu-principal li a {
+			color: white;
+			text-decoration: none;
+			display: block;
+			}
+
+		#menu-principal li:hover {
+			transform: scale(1.05);
+			background-color: Red;
+			}
+
+		main {
+			grid-area: conteudo;
+			background-color: rgba(255, 255, 255, 0.9);
+			padding: 30px;
+			border-radius: 30px;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+			}
+
+		section, #nomes, #acidentes, #dinheiro, #aleatorio, #formulario, #formulario-secreto {
+			max-width: 1200px;
+			margin: 30px auto; 
+			background-color: rgba(255, 255, 255, 0.9);
+			padding: 30px;
+			border-radius: 30px;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+			}
+
+		h1, h2 {
+			background-color: #3b383c;
+			text-align: center;
+			padding: 15px;
+			font-family: "Comic Sans MS", sans-serif;
+			color: Red;
+			border-radius: 20px;
+			margin-top: 0;
+			}
+
+		p{
+		color: #333;
+		font-family: "Comic Sans MS", sans-serif;
+		font-size: 22px;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			background: white;
+			margin: 20px 0;
+			}
+
+		th, td { padding: 12px; border-bottom: 1px solid #ddd; }
+		thead { background-color: #007bff; color: white; }
+
+		footer {
+			text-align: center;
+			padding: 40px;
+			background-color: #3b383c;
+			color: white;
+			margin-top: 50px;
+			border-radius: 30px 30px 0 0;
+			}
+
+		section + nav, 
+		#nomes ~ nav, 
+		#acidentes ~ nav,
+		nav:not(#menu-principal) {
+			background-color: #3b383c;
+			padding: 15px;
+			border-radius: 50px; 
+			margin: 40px auto; 
+			max-width: 950px;
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+			border: 2px solid Red;
+			position: relative; 
+			display: block;
+			clear: both; 
+			}
+
+		nav:not(#menu-principal) ul {
+			display: flex !important;
+			flex-direction: row !important; 
+			justify-content: center;
+			gap: 20px;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			flex-wrap: wrap; 
+			}
+
+		nav:not(#menu-principal) li {
+			background-color: #4a474b;
+			border-radius: 25px;
+			padding: 10px 20px;
+			transition: all 0.3s ease;
+			}
+
+		nav:not(#menu-principal) li a {
+			color: white;
+			text-decoration: none;
+			font-family: "Comic Sans MS", sans-serif;
+			font-size: 18px;
+			}
+
+		nav:not(#menu-principal) li:hover {
+			background-color: Red;
+			transform: scale(1.05); 
+			}
