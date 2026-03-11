@@ -121,9 +121,9 @@
 			}
 
 		p{
-		color: #333;
-		font-family: "Comic Sans MS", sans-serif;
-		font-size: 22px;
+			color: #333;
+			font-family: "Comic Sans MS", sans-serif;
+			font-size: 22px;
 		}
 
 		table {
@@ -189,4 +189,5 @@
 		nav:not(#menu-principal) li:hover {
 			background-color: Red;
 			transform: scale(1.05); 
+
 			}
