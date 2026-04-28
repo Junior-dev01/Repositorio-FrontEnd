@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolução</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-body: #f0f4f8;
+            --bg-section: #ffffff;
+            --text-color: #34495e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color:pink;
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #ffffff, #e8f1f8);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .question-card {
+            background-color: var(--bg-section);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            border: 1px solid #e1e8ed;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+        }
+
+
+
+        h2 {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+
+        .btn-tabela {
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+            display: block;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .btn-tabela:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+	nav ul {
+    	    list-style: none; /* Remove as bolinhas do tópico */
+            padding: 0;
+            display: flex;    /* Alinha os itens em linha */
+            justify-content: center; /* Centraliza o menu */
+            gap: 20px;       /* Dá um espaço entre os itens */
+	}
+
+	nav a {
+    	   text-decoration: none; /* Remove o sublinhado */
+    	   color: var(--accent-color);
+    	   font-weight: bold;
+	}
+
+	nav a:hover {
+    	   color: var(--primary-color);
+	}
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+<body style="background-color: pink;">
+    <div id="topo">
+        <h1>Informações sobre a Copa Do Mundo</h1>
+        <nav>
+            <ul>
+                <li><a href="#organizacao"> Organização e Sedes </a></li>
+                <li><a href="#novo"> Novo Formato </a></li>
+                <li><a href="#expectativas"> Expectativas e Impacto </a></li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+        </header>
+
+        <section class="question-card">
+
+            
+
+
+            <div class="descritivo-apoio">
+                <p id="organizacao">🌍 <strong>Organização e Sedes:</strong> A Copa do Mundo FIFA de 2026 será a primeira edição realizada em três países: Estados Unidos, Canadá e México. Essa será também a maior Copa da história em número de cidades-sede, com partidas distribuídas por diversas regiões da América do Norte, ampliando o alcance global do torneio.</p>
+                <p id="novo">⚽ <strong>Novo Formato:</strong>O torneio contará com 48 seleções, em vez das tradicionais 32. As equipes serão divididas em grupos, aumentando o número total de jogos e dando mais oportunidades para países de diferentes continentes participarem. Essa mudança foi promovida pela FIFA para tornar a competição mais inclusiva e competitiva.</p>
+                <p id="expectativas">🏆 <strong>Impacto:</strong>A edição de 2026 promete ser uma das mais assistidas da história, com grande impacto econômico e cultural nos países-sede. Além disso, seleções tradicionais e emergentes devem protagonizar jogos de alto nível, aumentando ainda mais o interesse global pelo futebol e fortalecendo o esporte em novas regiões.</p>
+            </div>
+        </section>
+
+        <div id="container-tabela">
+            <button onclick="mostrarTabela()" class="btn-tabela">Mostrar Tabela de Jogos</button>
+            <div id="resultado-tabela"></div>
+        </div>
+
+        <footer>
+            © 2026 - DFMF System
+        </footer>
+    </div>
+
+    <script>
+        function mostrarTabela() {
+            const container = document.getElementById('resultado-tabela');
+            const img = document.createElement('img');
+            
+            img.src = "img/Tabela_Jogos.png"; 
+            img.alt = "Tabela de Jogos";
+            img.style.maxWidth = "100%";
+            img.style.borderRadius = "12px";
+            img.style.boxShadow = "0 10px 25px rgba(0,0,0,0.15)";
+            img.style.marginTop = "20px";
+            img.style.display = "block";
+            img.style.marginLeft = "auto";
+            img.style.marginRight = "auto";
+
+            container.innerHTML = "";
+            container.appendChild(img);
+        }
+    </script>
+</body>
+</html>

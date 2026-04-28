@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolucao 1 2 3</title>
+
+    <style>
+        body {
+
+            background-color: pink;
+            font-family: sans-serif;
+
+        }
+
+        .cartao-grupo {
+
+
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 0;
+	    flex: 1;
+	    min-width: 300px;
+            max-width: 400px;
+
+        }
+
+        h3 {
+
+            font-size: 28px;
+            font-weight: bold;
+            color: rgb(0, 124, 124);
+
+        }
+
+        nav {
+
+            text-align: center;
+            background: blue;
+            padding: 15px;
+
+        }
+
+        nav a {
+
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 20px;
+
+        }
+
+        p {
+
+            color: gray;
+            line-height: 1.5;
+
+        }
+
+        .area-botao {
+
+            text-align: center;
+            margin: 40px 0;
+            clear: both;
+
+        }
+
+        #btn-proximo {
+
+            background-color: #1a7381;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 18px;
+            cursor: pointer;
+            font-weight: bold;
+
+        }
+
+        #btn-proximo:hover {
+
+            background-color: #155a66;
+
+
+        }
+	.container-cards {
+   	   display: flex;
+    	   flex-wrap: wrap;    
+    	   justify-content: center; 
+      	   gap: 20px;          
+    	   padding: 20px;
+	}
+	details {
+   	   background-color: #f9f9f9;
+   	   padding: 10px;
+    	   border-radius: 10px;
+    	   cursor: pointer;
+   	   transition: background 0.3s;
+	}
+	details:hover {
+    	   background-color: #f0f0f0;
+	}
+	summary {
+    	   font-weight: bold;
+     	   color: #1a7381;
+    	   outline: none; 
+	}
+	details p {
+    	   margin-top: 10px;
+    	   font-size: 14px;
+	}
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+
+        <a href="#grupoa" id="nav-a">Grupo A</a>
+        <a href="#grupob" id="nav-b">Grupo B</a>
+        <a href="#grupoc" id="nav-c">Grupo C</a>
+
+
+    </nav>
+<div class="container-cards">
+    <section id="grupoa" class="cartao-grupo">
+
+        <h3 id="titulo-a">Seleções Grupo A</h3>
+        <ul id="lista-a">
+            <li>México</li>
+            <li>Africa do Sul</li>
+            <li>Coreia do Sul</li>
+            <li>República Tcheca</li>
+
+        </ul>
+	<details>
+            <summary><strong>Fatos</strong></summary>
+        <p id="fato-a">
+            <strong>Fatos:</strong>
+            O jogo de abertura será México x África do Sul. Confrontos entre Coreia do Sul e seleções
+            europeias já ocorreram em várias Copas, com histórico equilibrado.
+
+        </p>
+	</details>
+    </section>
+
+    <section id="grupob" class="cartao-grupo">
+
+        <h3 id="titulo-b">Seleções Grupo B</h3>
+        <ul id="lista-b">
+
+            <li>Canadá</li>
+            <li>Suiça</li>
+            <li>Catar</li>
+            <li>Vaga Européia(Bósnia)</li>
+
+
+        </ul>
+	<details>
+            <summary><strong>Fatos</strong></summary>
+        <p id="fato-b">
+            <strong>Fatos:</strong>
+            O Canadá joga em casa, fator importante de desempenho. Catar e Suíça já se
+            enfrentaram recentemente em amistosos internacionais.
+        </p>
+	</details>
+    </section>
+
+    <section id="grupoc" class="cartao-grupo">
+
+        <h3 id="titulo-c">Seleções Grupo C</h3>
+        <ul id="lista-c">
+            <li>Brasil</li>
+            <li>Marrocos</li>
+            <li>Haiti</li>
+            <li>Escócia</li>
+
+        </ul>
+	<details>
+            <summary><strong>Fatos</strong></summary>
+        <p id="fato-c">
+            <strong>Fatos:</strong>
+            Brasil, Marrocos e Escócia já dividiram grupo em 1998.
+            Brasil nunca perdeu para a Escócia em Copas.
+        </p>
+	</details>
+
+    </section>
+</div>
+
+    <div class="area-botao">
+
+
+        <button id="btn-proximo" onclick="proximo()">Proximo Card</button>
+
+    </div>
+
+
+
+    <script src="script02.js"></script>
+
+</body>
+
+</html>
