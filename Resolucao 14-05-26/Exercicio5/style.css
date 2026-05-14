@@ -1,0 +1,87 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.vip-card {
+    background: #fff;
+    width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+h2 {
+    color: #1a2a6c;
+    margin-bottom: 20px;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#addBtn {
+    background-color: #1a2a6c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+.guest-name {
+    flex: 1;
+    text-align: left;
+    font-weight: 500;
+}
+
+.classe-riscado {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.actions button {
+    margin-left: 5px;
+    padding: 5px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+}
+
+.btn-concluir { background: #28a745; color: white; }
+.btn-editar { background: #ffc107; color: black; }
+.btn-excluir { background: #dc3545; color: white; }

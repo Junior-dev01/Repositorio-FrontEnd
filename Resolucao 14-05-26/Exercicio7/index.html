@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Card Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="analyzer-card">
+        <h2>Analisador de Cartão</h2>
+        <div class="input-container">
+            <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19">
+            <button onclick="analisarCartao()">Analisar Cartão</button>
+        </div>
+
+        <div id="infoPanel" class="info-panel">
+            <h3>Painel de Informações</h3>
+            <div class="info-grid">
+                <div class="info-item"><strong>Status:</strong> <span id="status"></span></div>
+                <div class="info-item"><strong>Bandeira:</strong> <span id="bandeira"></span></div>
+                <div class="info-item"><strong>Setor:</strong> <span id="setor"></span></div>
+                <div class="info-item"><strong>IIN/BIN:</strong> <span id="iin"></span></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

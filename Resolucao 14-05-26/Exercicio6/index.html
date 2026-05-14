@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Infinity Events - Orçamento</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="event-card">
+        <h2>Orçamento de Eventos</h2>
+        
+        <div class="field">
+            <label>Selecione o Pacote:</label>
+            <select id="pacote">
+                <option value="50">Standard - R$ 50,00/pessoa</option>
+                <option value="80">Premium - R$ 80,00/pessoa</option>
+                <option value="120">Infinity Deluxe - R$ 120,00/pessoa</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>Quantidade de Pessoas:</label>
+            <input type="number" id="qtdPessoas" min="1" placeholder="Ex: 50">
+        </div>
+
+        <button onclick="calcularOrcamento()">Calcular Orçamento</button>
+
+        <div id="resultado" class="resultado-box">
+            </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
