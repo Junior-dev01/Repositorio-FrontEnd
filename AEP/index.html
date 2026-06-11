@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGrid Manager - Sistema ODS 7</title>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --dark: #1b5e20;
+            --bg: #f5f5f5;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --prio-alta: #d32f2f;
+            --prio-media: #f57c00;
+            --prio-baixa: #388e3c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-light);
+        }
+
+        h2 {
+            color: var(--dark);
+            margin-top: 0;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: var(--dark);
+        }
+
+        .btn-atender {
+            background-color: #0288d1;
+        }
+        .btn-atender:hover {
+            background-color: #01579b;
+        }
+
+        .fila-container {
+            margin-top: 15px;
+            background: #eee;
+            padding: 10px;
+            border-radius: 6px;
+            min-height: 50px;
+        }
+
+        .no-fila {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .prio-3 { background-color: var(--prio-alta); }
+        .prio-2 { background-color: var(--prio-media); }
+        .prio-1 { background-color: var(--prio-baixa); }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        .log-container {
+            background-color: #222;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 15px;
+            border-radius: 6px;
+            height: 150px;
+            overflow-y: auto;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>EcoGrid Manager 🌍</h1>
+        <p> Solução Tecnológica para Eficiência e Distribuição de Energia Limpa (ODS 7)</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="column-left" style="display: flex; flex-direction: column; gap: 20px;">
+            
+            <div class="card">
+                <h2>1. Injetar Energia Limpa (Produtor)</h2>
+                <div class="form-group">
+                    <label for="prod-nome">Nome do Produtor / Usina:</label>
+                    <input type="text" id="prod-nome" placeholder="Ex: Usina Solar João da Silva ou Biomassa Indústria X">
+                </div>
+                <div class="form-group">
+                    <label for="prod-fonte">Fonte de Energia:</label>
+                    <select id="prod-fonte">
+                        <option value="Solar">Solar (Fotovoltaica)</option>
+                        <option value="Biomassa">Biomassa (Milho/Cana)</option>
+                        <option value="Eólica">Eólica</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="prod-qtd">Quantidade Injetada (kW):</label>
+                    <input type="number" id="prod-qtd" min="1" value="100">
+                </div>
+                <button onclick="gerarEnergia()">Injetar Excedente na Rede</button>
+            </div>
+
+            <div class="card">
+                <h2>2. Solicitar Compra de Energia (Consumidor)</h2>
+                <div class="form-group">
+                    <label for="cons-nome">Nome do Consumidor:</label>
+                    <input type="text" id="cons-nome" placeholder="Ex: Data Center Google, Hospital Regional ou Residência Y">
+                </div>
+                <div class="form-group">
+                    <label for="cons-prio">Tipo de Consumidor (Prioridade de Atendimento):</label>
+                    <select id="cons-prio">
+                        <option value="3">Infraestrutura Crítica / Data Center (Alta Prioridade)</option>
+                        <option value="2">Indústria / Comercial (Média Prioridade)</option>
+                        <option value="1">Residencial / Cidadão Comum (Baixa Prioridade)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cons-qtd">Demanda Requerida (kW):</label>
+                    <input type="number" id="cons-qtd" min="1" value="150">
+                </div>
+                <button onclick="solicitarEnergia()">Entrar na Fila de Distribuição</button>
+            </div>
+
+        </div>
+
+        <div class="column-right" style="display: flex; flex-direction: column; gap: 20px;">
+            
+            <div class="card">
+                <h2>3. Fila de Prioridade Smart Grid (Estrutura de Dados)</h2>
+                <p>Consumidores aguardando liberação de pacotes de energia limpa ordenados por prioridade sistêmica:</p>
+                
+                <div class="fila-container" id="fila-visual">
+                    <p style="text-align: center; color: #777;">Fila de distribuição vazia.</p>
+                </div>
+
+                <div style="margin-top: 15px; background: #e3f2fd; padding: 15px; border-radius: 6px; border-left: 5px solid #0288d1;">
+                    <strong>Energia Disponível na Rede Central:</strong> <span id="energia-disponivel">0</span> kW
+                </div>
+                
+                <button class="btn-atender" onclick="processarFila()">Atender Próximo Consumidor da Fila</button>
+            </div>
+
+            <div class="card">
+                <h2>4. Histórico do Sistema (Logs de Operação)</h2>
+                <div class="log-container" id="logs">
+                    [SISTEMA INITIALIZED] Aguardando interações do EcoGrid...<br>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        class Usuario {
+            constructor(nome) {
+                if (this.constructor === Usuario) {
+                    throw new TypeError("Não é possível instanciar a classe abstrata Usuario diretamente.");
+                }
+                this.nome = nome;
+            }
+        }
+
+        class Produtor extends Usuario {
+            constructor(nome, tipoFonte, capacidadeKW) {
+                super(nome);
+                this.tipoFonte = tipoFonte;
+                this.capacidadeKW = parseFloat(capacidadeKW);
+            }
+        }
+
+        class Consumidor extends Usuario {
+            constructor(nome, prioridade, demandaKW) {
+                super(nome);
+                this.prioridade = parseInt(prioridade);
+                this.demandaKW = parseFloat(demandaKW);
+                this.proximo = null;
+            }
+        }
+
+        class FilaPrioridadeSmartGrid {
+            constructor() {
+                this.frente = null;
+            }
+
+            enfileirar(novoConsumidor) {
+                if (this.frente === null) {
+                    this.frente = novoConsumidor;
+                } 
+                else if (novoConsumidor.prioridade > this.frente.prioridade) {
+                    novoConsumidor.proximo = this.frente;
+                    this.frente = novoConsumidor;
+                } 
+                else {
+                    let aux = this.frente;
+                    while (aux.proximo !== null && aux.proximo.prioridade >= novoConsumidor.prioridade) {
+                        aux = aux.proximo;
+                    }
+                    novoConsumidor.proximo = aux.proximo;
+                    aux.proximo = novoConsumidor;
+                }
+            }
+
+            desenfileirar() {
+                if (this.frente === null) return null;
+                let removido = this.frente;
+                this.frente = this.frente.proximo;
+                return removido;
+            }
+
+            estaVazia() {
+                return this.frente === null;
+            }
+        }
+
+        const gridFila = new FilaPrioridadeSmartGrid();
+        let energiaDisponivelGlobal = 0;
+
+        function log(mensagem) {
+            const logBox = document.getElementById('logs');
+            const agora = new Date().toLocaleTimeString();
+            logBox.innerHTML += `[${agora}] ${mensagem}<br>`;
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+
+        function atualizarInterface() {
+            document.getElementById('energia-disponivel').innerText = energiaDisponivelGlobal.toFixed(1);
+
+            const filaVisual = document.getElementById('fila-visual');
+            filaVisual.innerHTML = '';
+
+            if (gridFila.estaVazia()) {
+                filaVisual.innerHTML = '<p style="text-align: center; color: #777;">Fila de distribuição vazia.</p>';
+                return;
+            }
+
+            let aux = gridFila.frente;
+            while (aux !== null) {
+                let rotuloPrio = aux.prioridade === 3 ? 'CRÍTICA' : aux.prioridade === 2 ? 'MÉDIA' : 'BAIXA';
+                
+                filaVisual.innerHTML += `
+                    <div class="no-fila prio-${aux.prioridade}">
+                        <span>${aux.nome} (${aux.demandaKW} kW)</span>
+                        <span class="badge">Prioridade: ${rotuloPrio}</span>
+                    </div>
+                `;
+                aux = aux.proximo;
+            }
+        }
+
+        function gerarEnergia() {
+            const nome = document.getElementById('prod-nome').value.trim() || "Produtor Anônimo";
+            const fonte = document.getElementById('prod-fonte').value;
+            const qtd = parseFloat(document.getElementById('prod-qtd').value);
+
+            if(isNaN(qtd) || qtd <= 0) {
+                alert("Insira uma quantidade válida de energia!");
+                return;
+            }
+
+            const produtor = new Produtor(nome, fonte, qtd);
+            
+            energiaDisponivelGlobal += produtor.capacidadeKW;
+            log(`Módulo <b>${produtor.tipoFonte}</b> de <i>${produtor.nome}</i> injetou <b>+${produtor.capacidadeKW} kW</b> na rede.`);
+            
+            atualizarInterface();
+        }
+
+        function solicitarEnergia() {
+            const nome = document.getElementById('cons-nome').value.trim() || "Consumidor Padrão";
+            const prio = document.getElementById('cons-prio').value;
+            const qtd = parseFloat(document.getElementById('cons-qtd').value);
+
+            if(isNaN(qtd) || qtd <= 0) {
+                alert("Insira uma demanda de energia válida!");
+                return;
+            }
+
+            const consumidor = new Consumidor(nome, prio, qtd);
+            
+            gridFila.enfileirar(consumidor);
+            
+            let txtPrio = prio === "3" ? "Alta (Data Center)" : prio === "2" ? "Média (Comércio)" : "Baixa (Residência)";
+            log(`Requisição de <b>${consumidor.nome}</b> (${consumidor.demandaKW} kW) adicionada com prioridade <b>${txtPrio}</b>.`);
+            
+            atualizarInterface();
+        }
+
+        function processarFila() {
+            if (gridFila.estaVazia()) {
+                log("Tentativa de distribuição ignorada: Fila de consumidores vazia.");
+                alert("Não há consumidores na fila aguardando energia.");
+                return;
+            }
+
+            let proximoConsumidor = gridFila.frente;
+
+            if (energiaDisponivelGlobal >= proximoConsumidor.demandaKW) {
+                let atendido = gridFila.desenfileirar();
+                energiaDisponivelGlobal -= atendido.demandaKW;
+                log(`✅ <b>SUCESSO:</b> Fila processada. <b>${atendido.nome}</b> recebeu <b>${atendido.demandaKW} kW</b> de energia renovável.`);
+            } else {
+                log(`❌ <b>ALERTA DE FALHA:</b> Energia insuficiente na rede (${energiaDisponivelGlobal.toFixed(1)} kW disponíveis) para atender a demanda crítica de <b>${proximoConsumidor.nome}</b> (${proximoConsumidor.demandaKW} kW).`);
+                alert("Energia limpa total disponível é insuficiente para atender o próximo consumidor prioritário da fila. Injete mais energia!");
+            }
+
+            atualizarInterface();
+        }
+    </script>
+</body>
+</html>

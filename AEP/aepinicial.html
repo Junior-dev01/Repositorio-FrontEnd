@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGrid Knowledge - Enciclopédia de Energias Renováveis</title>
+    <style>
+        :root {
+            --primary: #1b5e20;
+            --primary-light: #43a047;
+            --secondary: #01579b;
+            --bg: #eceff1;
+            --card-bg: #ffffff;
+            --text: #263238;
+            --accent: #f57f17;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { margin: 10px 0 0; font-weight: 300; font-size: 1.1rem; }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 6px solid var(--primary-light);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 12px;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .info-btn {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .info-btn:hover {
+            border-color: var(--primary-light);
+            background: #e8f5e9;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .info-btn strong { color: var(--primary); font-size: 1.1rem; }
+        .info-btn span { font-size: 0.85rem; color: #666; }
+
+        .stat-box {
+            background: #e3f2fd;
+            border-left: 5px solid var(--secondary);
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .log-container {
+            background-color: #1a1a1a;
+            color: #81c784;
+            font-family: 'Consolas', 'Monaco', monospace;
+            padding: 20px;
+            border-radius: 8px;
+            height: 350px;
+            overflow-y: auto;
+            border: 2px solid #333;
+            font-size: 0.9rem;
+        }
+
+        .log-entry { 
+            animation: fadeIn 0.5s ease;
+        }
+
+        .log-entry b { color: #fff; text-transform: uppercase; }
+
+        .highlight { color: var(--accent); font-weight: bold; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #546e7a;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>EcoGrid Knowledge 🌍</h1>
+        <p>ODS 7: Assegurar o acesso confiável, sustentável, moderno e a preço acessível à energia para todos.</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="column">
+            <div class="card">
+                <h2>📊 Tecnologias de Geração</h2>
+                <p>O setor energético está em transição global. Clique abaixo para analisar os detalhes técnicos de cada fonte:</p>
+                
+                <div class="source-grid">
+                    <button class="info-btn" onclick="analisar('Solar')">
+                        <strong>☀️ Fotovoltaica</strong>
+                        <span>Energia dos fótons</span>
+                    </button>
+                    <button class="info-btn" onclick="analisar('Eolica')">
+                        <strong>💨 Eólica Onshore</strong>
+                        <span>Energia cinética</span>
+                    </button>
+                    <button class="info-btn" onclick="analisar('Biomassa')">
+                        <strong>🔥 Biomassa</strong>
+                        <span>Conversão térmica</span>
+                    </button>
+                    <button class="info-btn" onclick="analisar('Hidro')">
+                        <strong>🌊 Hidrelétrica</strong>
+                        <span>Potencial gravitacional</span>
+                    </button>
+                    <button class="info-btn" onclick="analisar('Hidrogenio')">
+                        <strong>💧 H2 Verde</strong>
+                        <span>Vetor do futuro</span>
+                    </button>
+                    <button class="info-btn" onclick="analisar('Geotermica')">
+                        <strong>🌋 Geotérmica</strong>
+                        <span>Calor do gradiente</span>
+                    </button>
+                    
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <button class="info-btn" type="button" style="width: 100%; height: 100%;">
+                            <strong>⚙️ Controle de Geração</strong>
+                            <span>Gerenciamento da rede</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 25px;">
+                <h2>📉 O Desafio da Matriz</h2>
+                <div class="stat-box">
+                    <strong>Intermitência:</strong> Um dos maiores desafios das renováveis é a dependência de fatores climáticos. O armazenamento em baterias de íon-lítio e hidrogênio é a chave para a estabilidade da rede.
+                </div>
+                <p>No Brasil, mais de <span class="highlight">80%</span> da matriz elétrica é renovável, colocando o país décadas à frente da média mundial.</p>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card" style="height: 100%;">
+                <h2>🔍 Terminal de Análise Técnico</h2>
+                <p>Logs de sistema com dados robustos sobre a fonte selecionada:</p>
+                
+                <div class="log-container" id="logs">
+                    [SISTEMA EM ESPERA] Selecione uma tecnologia à esquerda para iniciar o parsing de dados...
+                </div>
+                
+                <p style="font-size: 0.8rem; color: #777; margin-top: 15px;">
+                    *Dados baseados em relatórios da Irena e EPE.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        EcoGrid Manager &copy; 2026 - Tecnologia a serviço da Sustentabilidade (ODS 7)
+    </footer>
+
+    <script>
+        const dadosTecnicos = {
+            'Solar': {
+                titulo: "Energia Solar Fotovoltaica",
+                funcionamento: "Efeito fotoelétrico em semicondutores de silício.",
+                eficiencia: "15% a 22% comercialmente.",
+                vantagem: "Baixo custo de manutenção e modularidade extrema.",
+                contexto: "Em 2023, tornou-se a fonte com maior crescimento de capacidade instalada no mundo."
+            },
+            'Eolica': {
+                titulo: "Energia Eólica (Onshore/Offshore)",
+                funcionamento: "Conversão da energia cinética do vento em torque mecânico via aerogeradores.",
+                eficiencia: "Limite de Betz (máximo teórico de 59.3%).",
+                vantagem: "Alta densidade energética em regiões costeiras e ventos constantes.",
+                contexto: "As turbinas offshore podem atingir capacidades superiores a 15MW por unidade."
+            },
+            'Biomassa': {
+                titulo: "Bioenergia e Biomassa",
+                funcionamento: "Combustão direta ou biodigestão de resíduos orgânicos.",
+                eficiencia: "Varia conforme o processo (30% em queima simples).",
+                vantagem: "Despachabilidade (pode gerar energia quando não há sol ou vento).",
+                contexto: "Fundamental no Brasil através do bagaço da cana-de-açúcar na safra agrícola."
+            },
+            'Hidro': {
+                titulo: "Energia Hidrelétrica",
+                funcionamento: "Uso do desnível topográfico e fluxo de água para girar turbinas Francis/Kaplan.",
+                eficiencia: "Altíssima, superior a 90%.",
+                vantagem: "Grande capacidade de armazenamento (reservatórios como baterias gigantes).",
+                contexto: "Principal fonte da base brasileira, embora sofra com períodos de seca severa."
+            },
+            'Hidrogenio': {
+                titulo: "Hidrogênio Verde (Vetor Energético)",
+                funcionamento: "Eletrólise da água utilizando eletricidade 100% renovável.",
+                eficiencia: "60% a 80% no processo de eletrólise.",
+                vantagem: "Descarbonização de indústrias pesadas e transporte marítimo.",
+                contexto: "Considerado o 'combustível do futuro' para o armazenamento de longo prazo."
+            },
+            'Geotermica': {
+                titulo: "Energia Geotérmica",
+                funcionamento: "Extração de vapor ou água quente de reservatórios subterrâneos profundos.",
+                eficiencia: "Fator de capacidade alto (>90%), geração constante.",
+                vantagem: "Fonte de energia de base, disponível 24h por dia independente do clima.",
+                contexto: "Líder em países como Islândia e regiões de falhas geológicas ativas."
+            }
+        };
+
+        function analisar(id) {
+            const info = dadosTecnicos[id];
+            const logBox = document.getElementById('logs');
+            const agora = new Date().toLocaleTimeString();
+            
+            logBox.innerHTML = `[${agora}] ANALYSING DATA STREAM...`;
+            
+            setTimeout(() => {
+                logBox.innerHTML = `
+                    <div class="log-entry">
+                        [${agora}] <b>RELATÓRIO TÉCNICO: ${info.titulo}</b><br>
+                        ---------------------------------------------------<br>
+                        > <b>MECANISMO:</b> ${info.funcionamento}<br>
+                        > <b>EFICIÊNCIA:</b> <span class="highlight">${info.eficiencia}</span><br>
+                        > <b>ESTRATÉGIA:</b> ${info.vantagem}<br>
+                        > <b>MERCADO:</b> ${info.contexto}<br>
+                        ---------------------------------------------------<br>
+                        [STATUS] Parsing concluído com sucesso.
+                    </div>
+                `;
+            }, 300);
+        }
+    </script>
+</body>
+</html>
