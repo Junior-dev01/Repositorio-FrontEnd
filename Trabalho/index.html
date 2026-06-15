@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conex | Soluções em Exportação de Contêineres da China</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: #1f2937;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.875rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            letter-spacing: -0.05em;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #dc2626;
+        }
+
+        nav a.btn-nav {
+            background-color: #dc2626;
+            color: #ffffff;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            transition: background-color 0.2s;
+        }
+
+        nav a.btn-nav:hover {
+            background-color: #b91c1c;
+        }
+
+        .hero {
+            position: relative;
+            background-color: #111827;
+            color: #ffffff;
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 3.75rem; }
+        }
+
+        .hero h1 span {
+            color: #ef4444;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #dc2626;
+            color: #ffffff;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #b91c1c;
+        }
+
+        .btn-secondary {
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: #111827;
+        }
+
+        .hero-decor {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 33.33%;
+            background-color: #2563eb;
+            opacity: 0.1;
+            transform: skewX(12deg) translateX(5rem);
+        }
+
+        .services {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .section-title .bar {
+            width: 5rem;
+            height: 4px;
+            background-color: #dc2626;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-green { border-bottom: 4px solid #dc2626; }
+        .card-black { border-bottom: 4px solid #1e3a8a; }
+
+        .card:hover {
+            transform: translateY(-0.5rem);
+        }
+
+        .card-icon {
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .card-green .card-icon svg { fill: #dc2626; }
+        .card-black .card-icon svg { fill: #1e3a8a; }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+
+        .card p {
+            color: #4b5563;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card .btn-link {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .card .btn-link:hover {
+            color: #dc2626;
+        }
+
+        .tracking {
+            background-color: #f3f4f6;
+            padding: 4rem 0;
+        }
+
+        .tracking-wrapper {
+            max-width: 42rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .tracking h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box {
+            display: flex;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .search-box input {
+            flex-grow: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-box button {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            padding: 0 2rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .tracking p.hint {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .contact {
+            padding: 5rem 0;
+            background-color: #ffffff;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-wrapper { flex-direction: row; }
+            .contact-info, .contact-form { width: 50%; }
+        }
+
+        .contact-info h2 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: #4b5563;
+            margin-bottom: 2rem;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .info-item svg {
+            fill: #dc2626;
+            margin-right: 1rem;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-form form {
+            background-color: #f9fafb;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .contact-form input, 
+        .contact-form select, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.25rem;
+            outline: none;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .contact-form input:focus, 
+        .contact-form select:focus, 
+        .contact-form textarea:focus {
+            border-color: #dc2626;
+        }
+
+        .contact-form select {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form textarea {
+            margin-bottom: 1rem;
+            resize: vertical;
+        }
+
+        footer {
+            background-color: #111827;
+            color: #ffffff;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer .border-top {
+            border-top: 1px solid #1f2937;
+            padding-top: 2rem;
+        }
+
+        footer .links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        footer .links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer .links a:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                CONEX
+            </div>
+            <nav>
+                <a href="index.html#home">Início</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="index.html#rastreamento">Rastreamento</a>
+                <a href="index.html#contato" class="btn-nav">Fale Conosco</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sua ponte direta para a <span>indústria chinesa.</span></h1>
+                <p>Logística simplificada, inspeção de carga e transporte de contêineres da China para qualquer porto do mundo. Segurança e agilidade no seu comércio exterior.</p>
+                <div class="hero-buttons">
+                    <a href="servicos.html" class="btn-primary">Ver Serviços</a>
+                    <a href="index.html#contato" class="btn-secondary">Solicitar Cotação</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-decor"></div>
+    </section>
+
+    <section id="servicos" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossas Soluções</h2>
+                <div class="bar"></div>
+            </div>
+            
+            <div class="services-grid">
+                <div class="card card-green">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 640 512"><path d="M624 416H381.54l28.28-56.57a16 16 0 0 0-2.31-18.42L352 282.26V112H440a24 24 0 0 0 24-24V24a24 24 0 0 0-24-24H200a24 24 0 0 0-24 24v64a24 24 0 0 0 24 24h88v170.26l-55.51 58.75a16 16 0 0 0-2.31 18.42L258.46 416H16a16 16 0 0 0-16 16v32a48 48 0 0 0 48 48h544a48 48 0 0 0 48-48v-32a16 16 0 0 0-16 16zM224 48h192v16H224zm214.37 368H201.63l-16-32h268.74z"/></svg>
+                    </div>
+                    <h3>FCL (Full Container Load)</h3>
+                    <p>Contêineres completos de 20', 40' e 40' HC com as melhores taxas marítimas do mercado chinês.</p>
+                    <a href="servicos.html#fcl" class="btn-link">Saiba mais &rarr;</a>
+                </div>
+
+                <div class="card card-black">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 576 512"><path d="M560 288h-16V128c0-17.7-14.3-32-32-32H400V32c0-17.7-14.3-32-32-32H208c-17.7 0-32 14.3-32 32v64H64c-17.7 0-32 14.3-32 32v160H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h544c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM224 48h128v48H224V48zM80 144h32v96H80v-96zm128-48h160v192H208V96zm288 144h-32v-96h32v96z"/></svg>
+                    </div>
+                    <h3>Consolidação LCL</h3>
+                    <p>Importe volumes menores com segurança, compartilhando espaço no contêiner e reduzindo custos fixos.</p>
+                    <a href="servicos.html#lcl" class="btn-link">Saiba mais &rarr;</a>
+                </div>
+
+                <div class="card card-green">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 384 512"><path d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM192 48c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm102.5 182.5l-96 96c-4.7 4.7-12.3 4.7-17 0l-48-48c-4.7-4.7-4.7-12.3 0-17l17-17c4.7-4.7 12.3-4.7 17 0l22.5 22.5 70.5-70.5c4.7-4.7 12.3-4.7 17 0l17 17c4.7 4.7 4.7 12.3 0 17z"/></svg>
+                    </div>
+                    <h3>Inspeção de Carga</h3>
+                    <p>Auditamos fornecedores e acompanhamos o estufamento do contêiner direto nos portos de Ningbo, Shanghai e Shenzhen.</p>
+                    <a href="servicos.html#inspecao" class="btn-link">Saiba mais &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rastreamento" class="tracking">
+        <div class="container">
+            <div class="tracking-wrapper">
+                <h2>Rastreie seu Contêiner</h2>
+                <div class="search-box">
+                    <input type="text" id="containerInput" placeholder="Digite o número do BL ou Container">
+                    <button id="btnTrack">Rastrear</button>
+                </div>
+                <p class="hint">Atualizações em tempo real via satélite (AIS).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Pronto para exportar?</h2>
+                    <p>Nossa equipe comercial fala português, inglês e mandarim para facilitar sua negociação.</p>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <svg viewBox="0 0 512 512"><path d="M493.4 345.5L422 274.1c-11.7-11.7-30.8-11.7-42.5 0l-37.1 37.1c-4.8 4.8-12.2 5.6-18 1.8-31-20.5-62-51.5-82.5-82.5-3.8-5.8-3-13.2 1.8-18l37.1-37.1c11.7-11.7 11.7-30.8 0-42.5L211.3 61.6c-11.7-11.7-30.8-11.7-42.5 0L121 99.4c-35.3 35.3-44.5 87.5-23.7 131.8 34.2 72.9 92.8 131.5 165.7 165.7 44.3 20.8 96.5 11.6 131.8-23.7l37.8-37.8c11.8-11.7 11.8-30.7 0-42.5z"/></svg>
+                            <span>+86 21 1234 5678 (Escritório Shanghai)</span>
+                        </div>
+                        <div class="info-item">
+                            <svg viewBox="0 0 512 512"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
+                            <span>contato@chinga-logistics.com</span>
+                        </div>
+                        <div class="info-item">
+                            <svg viewBox="0 0 384 512"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>
+                            <span>Pudong District, Shanghai, China</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-grid">
+                            <input type="text" id="formNome" placeholder="Nome" required>
+                            <input type="email" id="formEmail" placeholder="E-mail" required>
+                        </div>
+                        <select id="formServico" required>
+                            <option value="">Tipo de Serviço</option>
+                            <option value="fcl">Container Completo (FCL)</option>
+                            <option value="lcl">Carga Fracionada (LCL)</option>
+                            <option value="inspecao">Inspeção de Fábrica</option>
+                        </select>
+                        <textarea id="formMensagem" rows="4" placeholder="Sua mensagem or detalhes da carga" required></textarea>
+                        <button type="submit" class="btn-primary">Enviar Solicitação</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container border-top">
+            <p>&copy; 2026 Conex Logistics Co. Ltd. Todos os direitos reservados.</p>
+            <div class="links">
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const btnTrack = document.getElementById('btnTrack');
+            const containerInput = document.getElementById('containerInput');
+
+            btnTrack.addEventListener('click', function() {
+                const codigo = containerInput.value.trim();
+                if (codigo === '') {
+                    alert('Por favor, digite o número do BL ou do Container.');
+                } else {
+                    alert('Buscando informações para o código: ' + codigo);
+                }
+            });
+
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const nome = document.getElementById('formNome').value;
+                const email = document.getElementById('formEmail').value;
+                const servico = document.getElementById('formServico').value;
+                const mensagem = document.getElementById('formMensagem').value;
+
+                console.log('Formulário enviado:', { nome, email, servico, mensagem });
+                
+                alert('Obrigado, ' + nome + '! Sua solicitação foi enviada com sucesso.');
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
