@@ -21,22 +21,50 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ----- Formulário de contato -----
+    // ----- Formulário de contato com integração Formspree -----
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
         contactForm.addEventListener('submit', function (event) {
-            event.preventDefault();
+            event.preventDefault(); // Não deixa a pagina recarregar!
 
-            const nome = document.getElementById('formNome').value;
-            const email = document.getElementById('formEmail').value;
-            const servico = document.getElementById('formServico').value;
-            const mensagem = document.getElementById('formMensagem').value;
+            // Captura o botão para dar um feedback visual de "Enviando..."
+            const btnSubmit = contactForm.querySelector('button[type="submit"]');
+            const textoOriginalBotao = btnSubmit.textContent;
+            btnSubmit.textContent = 'Enviando...';
+            btnSubmit.disabled = true;
 
-            console.log('Formulário enviado:', { nome, email, servico, mensagem });
+            // Coleta todos os dados do formulário automaticamente usando o atributo "name" do HTML
+            const formData = new FormData(contactForm);
 
-            alert('Obrigado, ' + nome + '! Sua solicitação foi enviada com sucesso.');
-            contactForm.reset();
+            // Envia os dados para o Formspree via AJAX (em segundo plano)
+            fetch(contactForm.action, {
+                method: contactForm.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Se o Formspree aceitou o envio com sucesso
+                    const nome = document.getElementById('formNome').value;
+                    alert('Obrigado, ' + nome + '! Sua solicitação foi enviada com sucesso.');
+                    contactForm.reset(); // Limpa os campos do formulário
+                } else {
+                    // Se o Formspree retornar algum erro de validação
+                    alert('Ops! Houve um problema ao enviar o formulário. Verifique os dados e tente novamente.');
+                }
+            })
+            .catch(error => {
+                // Se houver erro de rede/internet
+                alert('Erro de conexão. Verifique sua internet e tente novamente.');
+            })
+            .finally(() => {
+                // Restaura o botão ao estado original, independentemente de ter dado certo ou errado
+                btnSubmit.textContent = textoOriginalBotao;
+                btnSubmit.disabled = false;
+            });
         });
     }
 
