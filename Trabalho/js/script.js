@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ----- Rastreamento de container (Atualizado para ShipFinder) -----
+    // ----- Rastreamento de container -----
     const btnTrack = document.getElementById('btnTrack');
     const containerInput = document.getElementById('containerInput');
 
