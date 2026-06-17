@@ -5,18 +5,32 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ----- Rastreamento de container -----
+    // ----- Rastreamento de container (Atualizado para ShipFinder) -----
     const btnTrack = document.getElementById('btnTrack');
     const containerInput = document.getElementById('containerInput');
 
     // Só adiciona o evento se os elementos existirem nesta página
     if (btnTrack && containerInput) {
-        btnTrack.addEventListener('click', function () {
+        
+        // Função que abre o site do Shipfinder
+        function realizarRastreio() {
             const codigo = containerInput.value.trim();
             if (codigo === '') {
-                alert('Por favor, digite o número do BL ou do Container.');
+                alert('Por favor, digite o número do BL ou do Container antes de buscar.');
             } else {
-                alert('Buscando informações para o código: ' + codigo);
+                // Abre o site do ShipFinder em uma nova aba
+                window.open('https://www.shipfinder.com/', '_blank');
+            }
+        }
+
+        // Adiciona evento de clique ao botão
+        btnTrack.addEventListener('click', realizarRastreio);
+
+        // Permite que o usuário aperte "Enter" no teclado para buscar
+        containerInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Evita qualquer comportamento padrão
+                realizarRastreio();
             }
         });
     }
